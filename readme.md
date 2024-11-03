@@ -15,6 +15,9 @@ The project is organized into the following folders:
   - **interfaces**: Contains TypeScript interfaces that define contracts for various components, such as routes or services.
   - **exceptions**: Defines custom exceptions and error handling mechanisms.
   - **config**: Configuration files for the application, such as database configuration.
+  - **daos**: Contains the required dao files for the system to work.
+  - **dtos**: Contains the required dto files for input and output in the system
+  - **migrations**: Contains the migration for the DB schema.
   
 ## Key Files
 
