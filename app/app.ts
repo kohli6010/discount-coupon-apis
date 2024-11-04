@@ -5,6 +5,7 @@ import CustomerRoutes from './routes/customerRoutes';
 import errorMiddleware from './middlewares/errorMiddleware';
 import ProductRoutes from './routes/productRoutes';
 import CartRoutes from './routes/cartRoutes';
+import CouponRoutes from './routes/couponRoutes';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended: true}));
 app.use("/", Container.get(CustomerRoutes).router);
 app.use("/", Container.get(ProductRoutes).router);
 app.use("/", Container.get(CartRoutes).router);
+app.use("/", Container.get(CouponRoutes).router);
 
 app.use(errorMiddleware);
 

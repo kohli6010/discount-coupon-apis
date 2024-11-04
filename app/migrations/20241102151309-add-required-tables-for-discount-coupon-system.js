@@ -145,7 +145,7 @@ module.exports = {
       }
     })
 
-    await queryInterface.createTable('coupon', {
+    await queryInterface.createTable('coupons', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -156,53 +156,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: true
-      },
-      header: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      type: {
+      product: {
         type: Sequelize.ENUM,
         allowNull: false,
         values: ["CART", "PRODUCT", "BxGy"]
-      },
-      minimumCartAmount: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      usageAllowed: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-      },
-      value: {
-        type: Sequelize.DOUBLE,
-        allowNull: false
-      },
-      startsAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      expiresAt: {
-        type: Sequelize.DATE,
-        allowNull: true
       },
       isActive: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: true
-      },
-      maximumDiscountAmount: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      type: {
-        type: Sequelize.ENUM,
-        allowNull: false,
-        values: ["FLAT", "PERCENT"],
-        defaultValue: "FLAT"
       },
       ruleSet: {
         type: Sequelize.JSON,
@@ -229,6 +191,7 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     // await queryInterface.dropTable('coupon')
+    await queryInterface.dropTable('coupons');
     await queryInterface.dropTable('product-cart');
     await queryInterface.dropTable('products');
     await queryInterface.dropTable('carts');
