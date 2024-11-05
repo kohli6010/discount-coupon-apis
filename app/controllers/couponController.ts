@@ -13,9 +13,47 @@ export default class CouponController extends BaseController {
     }
 
     public getAll = async (req: Request, res: Response, next: NextFunction) => {
-        await super.validateRequestPermission(req, res, next);
-        let response = await this.couponService.getAll();
-        res.json(response);
+        try {
+            await super.validateRequestPermission(req, res, next);
+            let response = await this.couponService.getAll();
+            res.json(response);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    public getById = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await super.validateRequestPermission(req, res, next);
+            let id: number = Number(req.params.id);
+            let response = await this.couponService.getById(id);
+            res.json(response);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    public deleteById = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await super.validateRequestPermission(req, res, next);
+            let id: number = Number(req.params.id);
+            let response = await this.couponService.deleteById(id);
+            res.json(response);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    public updateById = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await super.validateRequestPermission(req, res, next);
+            let id: number = Number(req.params.id);
+            let body: CreateCouponRequestDto = req.body;
+            let response = await this.couponService.update(id, body);
+            res.json(response);
+        }catch(err) {
+            next(err);
+        }
     }
 
     public create = async(req: Request, res: Response, next: NextFunction) => {
@@ -33,7 +71,19 @@ export default class CouponController extends BaseController {
         try {
             await super.validateRequestPermission(req, res, next);
             let body: CartStateRequestDto = req.body;
-            let response = await this.couponService.getApplicableCoupon(body);
+            let response = await this.couponService.getApplicableCoupons(body);
+            res.json(response);
+        }catch(err) {
+            next(err);
+        }
+    }
+
+    public applyCoupon = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await super.validateRequestPermission(req, res, next);
+            let couponId: number = Number(req.params.id);
+            let body: CartStateRequestDto = req.body;
+            let response = await this.couponService.applyCoupon(couponId, body);
             res.json(response);
         }catch(err) {
             next(err);

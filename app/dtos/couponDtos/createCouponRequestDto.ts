@@ -2,7 +2,7 @@ import { IsObject, IsString } from "class-validator";
 
 export default class CreateCouponRequestDto {
     @IsString()
-    type: String;
+    type: string;
 
     @IsObject()
     details: any;
