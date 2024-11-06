@@ -114,7 +114,6 @@
 
    # To run the application, follow these commands:
 
-   ```bash
    # If you want to use docker to create a container for mysql, use the following command
    docker-compose up -d
 
