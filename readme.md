@@ -90,10 +90,6 @@
    Use Case: Ensuring customers always get the maximum possible discount.
 
    Implementation Note: The system can sort and select the highest discount or the most beneficial coupon type based on the cart contents.
-   ## An Important Fact.
-
-   According to the implementation, I there are 1 lakh active coupons in the system and around 100 items in the cart the response time will be around 500 ms.
-
 
    ## Running the Application
 
